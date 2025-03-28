@@ -9,7 +9,6 @@ public class Library {
     public static ArrayList<Book> getBook() {
         return book;
     }
-
     static ArrayList<Book> book = new ArrayList<>();
 
 }
