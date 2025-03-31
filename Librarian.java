@@ -1,21 +1,19 @@
-import java.util.ArrayList;
+package LibraryManagementSystem;
 
 public class Librarian {
     private String name;
     private String id;
-    private static ArrayList<Librarian> librarianDetails=new ArrayList<>();
-    static {
-        librarianDetails.add(new Librarian("L1","lp1"));
-    }
+//    private static ArrayList<LibraryManagementSystem.ACTIONS> librarianDetails = new ArrayList<>();
+//    LibraryManagementSystem.ACTIONS.addLibrarian()
     public Librarian(String name,String regNo){
         this.name=name;
         this.id=regNo;
     }
-    public String getName() {
-        return name;
-    }
-
-    public String getId() {
-        return id;
-    }
+//    public static String getName() {
+//        return name;
+//    }
+//
+//    public String getId() {
+//        return id;
+//    }
 }
