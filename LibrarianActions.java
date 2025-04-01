@@ -6,7 +6,7 @@ public class LibrarianActions {
     static Scanner scanner = new Scanner(System.in);
 
     public void librarianLogin() {
-        System.out.println("Welcome to the LibraryManagementSystem.Library");
+        System.out.println("Welcome to the Library");
         System.out.println("Enter your Name: ");
         String name = scanner.nextLine();
         System.out.println("Enter your getId: ");
@@ -23,9 +23,9 @@ public class LibrarianActions {
     }
 
     public void addStudents() {
-        System.out.println("Do you want to add StudentRecord.Students?");
+        System.out.println("Do you want to add Students?");
         System.out.println("1. Yes \n2. No");
-        int s = scanner.nextInt();
+        int s = Integer.parseInt(scanner.nextLine());
         while (s != 2) {
             switch (s) {
                 case 1:
@@ -35,7 +35,7 @@ public class LibrarianActions {
                     System.out.println("Enter the register number of a student: ");
                     String addsreg = scanner.nextLine();
                     ACTIONS.getDetails().add(new ACTIONS(addsname, addsreg));
-                    System.out.println("StudentRecord.LibraryManagementSystem.Student is Added Successfully!!!");
+                    System.out.println("Student is Added Successfully!!!");
                     break;
                 case 2:
                     System.out.println("Returning...");
@@ -48,19 +48,19 @@ public class LibrarianActions {
     }
 
     public void addLibrarians() {
-        System.out.println("Do you want to add StudentRecord.Students?");
+        System.out.println("Do you want to add Students?");
         System.out.println("1. Yes \n2. No");
-        int s = scanner.nextInt();
+        int s = Integer.parseInt(scanner.nextLine());
         while (s != 2) {
             switch (s) {
                 case 1:
-                    System.out.println("Enter the LibraryManagementSystem.Librarian name to add: ");
+                    System.out.println("Enter the Librarian name to add: ");
                     scanner.next();
                     String addsname = scanner.nextLine().trim();
                     System.out.println("Enter the register number of a student: ");
                     String addsreg = scanner.nextLine();
                     ACTIONS.getDetails().add(new ACTIONS(addsname, addsreg));
-                    System.out.println("LibraryManagementSystem.Librarian is Added Successfully!!!");
+                    System.out.println("Librarian is Added Successfully!!!");
                     break;
                 case 2:
                     System.out.println("Returning...");
@@ -73,7 +73,7 @@ public class LibrarianActions {
     }
 
     public static void removeBooks() {
-        System.out.println("Enter a LibraryManagementSystem.Book to Remove:");
+        System.out.println("Enter a Book name to Remove:");
         String nob = scanner.next();
         for (int o = 0; o < Library.getBook().size(); o++) {
             Book k = Library.getBook().get(o);
@@ -82,32 +82,32 @@ public class LibrarianActions {
                 int remove = scanner.nextInt();
                 Library.getBook().removeIf(p -> k.getCount() < remove);
                 k.setCount(k.getCount() - remove);
-                System.out.println("The LibraryManagementSystem.Book " + nob + " of count " + remove + " is removed Successfully");
+                System.out.println("The Book " + nob + " of count " + remove + " is removed Successfully");
             }
         }
     }
 
     public static void addBooks() {
-        System.out.println("Add Books in LibraryManagementSystem.Library");
+        System.out.println("Add Books in Library");
         System.out.println("Enter the Title of the book:");
         String name = scanner.nextLine();
         System.out.println("Enter the name of the author for the book " + name);
         String author = scanner.nextLine();
         System.out.println("Enter the isbn number for the book " + name);
-        String isbn = scanner.next();
-        System.out.println("Enter the Edition of the LibraryManagementSystem.Book : ");
-        int edition = scanner.nextInt();
+        String isbn = scanner.nextLine();
+        System.out.println("Enter the Edition of the Book : ");
+        int edition = Integer.parseInt(scanner.nextLine());
         boolean bookFound = false;
         for (var b : Library.getBook()) {
             if (b.getName().equals(name) && b.getAuthor().equals(author) && b.getIsbn().equals(isbn) && b.getEdition() == edition) {
-                System.out.println("The LibraryManagementSystem.Book is already present and its count is :" + b.getCount());
+                System.out.println("The Book is already present and its count is :" + b.getCount());
                 System.out.println("Did you need to restock the books? \n1. Yes \n2. No");
-                int s = scanner.nextInt();
+                int s = Integer.parseInt(scanner.nextLine());
                 if (s == 1) {
                     System.out.println("Enter the no. of books to add :");
-                    int count = scanner.nextInt();
+                    int count = Integer.parseInt(scanner.nextLine());
                     Library.book.add(new Book(name, author, isbn, edition, count, true));
-                    System.out.println("The LibraryManagementSystem.Book is added Successfully");
+                    System.out.println("The Book is added Successfully");
                 } else if (s == 2) {
                     System.out.println("Returning");
                 }
@@ -118,9 +118,9 @@ public class LibrarianActions {
         if (!bookFound) {
             System.out.println("No books Found !\n You can add Books...");
             System.out.println("Enter the no. of books to add :");
-            int count = scanner.nextInt();
+            int count = Integer.parseInt(scanner.nextLine());
             Library.book.add(new Book(name, author, isbn, edition, count, true));
-            System.out.println("The LibraryManagementSystem.Book is added Successfully");
+            System.out.println("The "+name+" is added Successfully");
         }
     }
 }
